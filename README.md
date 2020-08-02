@@ -1,4 +1,5 @@
-[https://travis-ci.org/test1910md/attestation.svg?branch=master](https://travis-ci.org/github/test1910md/attestation)
+[![Build Status](https://travis-ci.org/test1910md/api_test.svg?branch=master)](https://travis-ci.org/github/test1910md/api_test)
+
 # Банк Санкт-Петербург
 
   - Дата создания проекта 01.08.2020
