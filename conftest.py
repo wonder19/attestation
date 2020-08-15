@@ -1,6 +1,5 @@
 import os
 from datetime import datetime
-from Tools.scripts.win_add2path import PATH
 
 import allure
 import pytest
@@ -41,6 +40,11 @@ def pytest_addoption(parser):
     )
 
 
+PATH = lambda p: os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '..', p)
+)
+
+
 @pytest.fixture(scope="module")
 def login(app, request):
     app.open_main_page()
@@ -71,9 +75,9 @@ def pytest_runtest_makereport(item, call):
             cp_file_name = add_name + ".png"
             # only add additional html on failure
             html = (
-                "<div><img src="
-                + cp_file_name
-                + ' alt="screenshot" style="width:304px;height:228px;" '
+                    "<div><img src="
+                    + cp_file_name
+                    + ' alt="screenshot" style="width:304px;height:228px;" '
             )
             extra.append(pytest_html.extras.html(html))
         report.extra = extra
