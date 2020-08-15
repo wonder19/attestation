@@ -1,3 +1,2 @@
-
 class MainPageConstants:
-    USER_GREETING = 'Hello World!'
+    USER_GREETING = "Hello World!"

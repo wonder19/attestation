@@ -2,10 +2,10 @@ import allure
 from pytest_testrail.plugin import pytestrail
 
 
-@allure.suite('DepositSuite')
-@allure.description('Open Deposit test')
+@allure.suite("DepositSuite")
+@allure.description("Open Deposit test")
 @allure.tag("Testrail C1")
-@pytestrail.case('C1')
+@pytestrail.case("C1")
 def test_open_deposit(login):
     """
     Steps.

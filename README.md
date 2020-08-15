@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/test1910md/attestation.svg?branch=master)](https://travis-ci.org/github/test1910md/attestation)
-    
+
 # Банк Санкт-Петербург
-    
+
     https://idemo.bspb.ru/welcome
   - Дата создания проекта 01.08.2020
   - Инструменты:
@@ -49,16 +49,16 @@ git commit -m "commiting wihout pre-commit" --no-verify
  #### Установка allure
  Для генерации отчетов необходимо установить Scoop через PowerShell
  https://scoop.sh/
- 
- После чего нужно выполнить команду 
+
+ После чего нужно выполнить команду
   ```sh
  scoop install allure
  ```
  в окне PowerShell
- 
+
  #### Генерация отчетов
  После прохождения тестов сформируется папка allure_result в корневой директории проекта
-  
+
  Для генерации отчета необходимо ввести команду в окне PowerShell
  ```sh
  allure serve ${path}\attestation\allure

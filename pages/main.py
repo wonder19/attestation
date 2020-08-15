@@ -13,4 +13,3 @@ class MainPage:
 
     def greeting_label(self):
         return self.app.wd.find_element(*MainPageLocators.GREETING)
-
