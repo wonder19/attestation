@@ -9,3 +9,4 @@ install:
 
 script:
   - pytest
+  - py.test --testrail --tr-config=testrail.cfg
