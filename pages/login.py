@@ -1,7 +1,10 @@
-from common.utils import logging
+import logging
+
+# from common.utils import logging
 from locators.login import LoginLocators
 from model.login import UserData
 
+logger = logging.getLogger()
 
 class LoginPage:
     def __init__(self, app):
@@ -19,12 +22,13 @@ class LoginPage:
     def login_opt_button(self):
         return self.app.wd.find_element(*LoginLocators.LOGIN_OPT_BUTTON)
 
-    @logging("Authorization if user")
+    # @logging("Authorization if user")
     def auth(self, user_data: UserData, is_submit=True):
         """
         :param user_data: Class UserData, attribuites (Login: str, Password: str)
         :param is_submit: Attribuit, Boolean
         """
+        logger.info('Autorize user')
         if user_data.login is None:
             self.email_input().send_keys(user_data.login)
         if user_data.password is None:

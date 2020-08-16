@@ -6,6 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from common.logging import setup
 from common.utils import logging as log
+from pages.deposit import DepositPage
 from pages.login import LoginPage
 from pages.main import MainPage
 
@@ -23,6 +24,7 @@ class Application:
         self.base_url = base_url
         self.login_page = LoginPage(self)
         self.main_page = MainPage(self)
+        self.deposit_page = DepositPage(self)
 
     @log("Open main page")
     def open_main_page(self):
