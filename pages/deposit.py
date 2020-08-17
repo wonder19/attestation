@@ -84,7 +84,13 @@ class DepositPage:
         self.currency_radiobutton_click(deposit_data.currency)
         self.end_deposit_date_radiobutton_click(deposit_data.end_date)
         self.open_deposit_button_click(deposit_data.deposit_type)
-        return self.open_pens_deposit_button(deposit_data.deposit_type).get_attribute("href")
+        # return self.open_pens_deposit_button(deposit_data.deposit_type).get_attribute("href")
+
+    def deposit_condition(self, deposit_data: DepositData):
+        self.app.main_page.deposit_button_click()
+        self.app.deposit_page.new_deposit_button_click()
+        self.app.deposit_page.fill_deposit_condition(deposit_data)
+
 
     def end_deposit_date_input(self):
         return self.app.wd.find_element(*DepositLocators.END_DATE_INPUT)
