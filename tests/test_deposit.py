@@ -8,29 +8,29 @@ from common.constants import DepositPageConstants
 from model.deposit import DepositData
 
 
-@allure.suite("DepositSuite")
-@allure.description("Open Deposit test")
-@allure.tag("Testrail C1")
-@pytestrail.case("C1")
-def test_open_deposit(app):
-    """
-    Steps.
-    1) Authorize
-    2) Deposit tab
-    3) Choose  currency
-    4) Choose term
-    5) Chose rate
-    6) Input summ
-    7) Click continue button
-    8) Accept conditions
-    9) Click continue button
-    """
-    deposit_data = DepositData().random()
-    app.open_main_page()
-
-    app.main_page.deposit_button_click()
-    app.deposit_page.new_deposit_button_click()
-    app.deposit_page.fill_deposit_condition(deposit_data)
+# @allure.suite("DepositSuite")
+# @allure.description("Open Deposit test")
+# @allure.tag("Testrail C1")
+# @pytestrail.case("C1")
+# def test_open_deposit(app):
+#     """
+#     Steps.
+#     1) Authorize
+#     2) Deposit tab
+#     3) Choose  currency
+#     4) Choose term
+#     5) Chose rate
+#     6) Input summ
+#     7) Click continue button
+#     8) Accept conditions
+#     9) Click continue button
+#     """
+#     deposit_data = DepositData().random()
+#     app.open_main_page()
+#
+#     app.main_page.deposit_button_click()
+#     app.deposit_page.new_deposit_button_click()
+#     app.deposit_page.fill_deposit_condition(deposit_data)
 
 
 # @allure.suite("DepositSuite")
