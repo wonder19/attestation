@@ -9,3 +9,4 @@ install:
 
 script:
   - pytest --testrail --tr-config=testrail.cfg --tr-close-on-complete
+  - py.test --testrail --tr-config=testrail.cfg
