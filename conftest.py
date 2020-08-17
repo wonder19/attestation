@@ -1,9 +1,11 @@
 import os
+import time
 from datetime import datetime
 
 import allure
 import pytest
 
+from model.deposit import DepositData
 from model.login import UserData
 from pages.application import Application
 
@@ -52,6 +54,19 @@ def login(app, request):
     password = request.config.getoption("--password")
     user_data = UserData(login=login, password=password)
     app.login_page.auth(user_data)
+    yield app
+
+@pytest.fixture(scope="module")
+def fill_deposit_condition(app, request):
+    app.open_main_page()
+    login = request.config.getoption("--username")
+    password = request.config.getoption("--password")
+    user_data = UserData(login=login, password=password)
+    app.login_page.auth(user_data)
+    deposit_data = DepositData().random()
+    app.main_page.deposit_button_click()
+    app.deposit_page.new_deposit_button_click()
+    app.deposit_page.fill_deposit_condition(deposit_data)
     yield app
 
 

@@ -26,6 +26,9 @@ class Application:
         self.main_page = MainPage(self)
         self.deposit_page = DepositPage(self)
 
-    @log("Open main page")
+    # @log("Open main page")
     def open_main_page(self):
         self.wd.get(self.base_url + "welcome")
+
+    def open_deposit_condition_confirm_pae(self, value:str):
+        self.wd.get(self.base_url + value)

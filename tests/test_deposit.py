@@ -5,15 +5,13 @@ import pytest
 from pytest_testrail.plugin import pytestrail
 
 from common.constants import DepositPageConstants
+from model.deposit import DepositData
 
 
 @allure.suite("DepositSuite")
 @allure.description("Open Deposit test")
 @allure.tag("Testrail C1")
 @pytestrail.case("C1")
-# @pytest.mark.parametrize('currency_value', 'date_value',
-#                          [('RUB', 'USD', ' EUR'),
-#                          ('15', '31', '91')])
 def test_open_deposit(login):
     """
     Steps.
@@ -27,13 +25,29 @@ def test_open_deposit(login):
     8) Accept conditions
     9) Click continue button
     """
-    currency_value = 'RUB'
-    date_value = '15'
+    deposit_data = DepositData().random()
     login.open_main_page()
 
     login.main_page.deposit_button_click()
     login.deposit_page.new_deposit_button_click()
-    login.deposit_page.fill_deposit_condition(currency_value, date_value)
+    login.deposit_page.fill_deposit_condition(deposit_data)
+
+
+@allure.suite("DepositSuite")
+@pytest.mark.skip
+def test_open_deposit_with_incorrect_date(fill_deposit_condition):
+    """
+    Steps.
+    1) Authorize
+    2) Deposit tab
+    3) Fill deposit condition
+    4) Fill incorrect deposit date end value
+    """
+    value='111'
+    url=fill_deposit_condition
+    fill_deposit_condition.open_deposit_condition_confirm_pae(url)
+    fill_deposit_condition.end_deposit_date_input_send_keys(value)
+    time.sleep(5)
 
 
 @allure.suite("DepositSuite")
@@ -42,16 +56,27 @@ def test_close_deposit():
 
 
 @allure.suite("DepositSuite")
-def test_change_deposit_currency():
-    pass
+@allure.description("Change deposit term and currency value")
+@pytestrail.case("")
+@pytest.mark.parametrize('currency_value, deposit_quantity',
+                         [('RUB', 3), ('EUR', 3), ('USD', 1)])
+def test_change_deposit_term_and_curency(login, currency_value, deposit_quantity):
+    date_value = '-1'
+    deposit_type_value = '10'
+    login.open_main_page()
+
+    login.main_page.deposit_button_click()
+
+    login.deposit_page.new_deposit_button_click()
+    login.deposit_page.currency_radiobutton_click(currency_value)
+    login.deposit_page.end_deposit_date_radiobutton_click(date_value)
+
+    assert login.deposit_page.get_deposit_quantity(deposit_type_value) == deposit_quantity
 
 
 @allure.suite("DepositSuite")
-def test_change_deposit_term():
-    pass
-
-
-@allure.suite("DepositSuite")
+@allure.description("Open retirement deposit")
+@pytestrail.case("")
 def test_open_pens_deposit(login):
     """
     Steps.
@@ -62,7 +87,6 @@ def test_open_pens_deposit(login):
     5) Chose rate
 
     """
-
     login.open_main_page()
 
     login.main_page.deposit_button_click()

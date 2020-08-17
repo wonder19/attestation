@@ -5,6 +5,7 @@ __pycache__/
 .idea
 .venv
 
+
 # C extensions
 *.so
 
@@ -54,6 +55,7 @@ coverage.xml
 .pytest_cache/
 .allure_report
 .allure_result
+.allure
 
 # Translations
 *.mo

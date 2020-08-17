@@ -28,7 +28,7 @@ class LoginPage:
         :param user_data: Class UserData, attribuites (Login: str, Password: str)
         :param is_submit: Attribuit, Boolean
         """
-        logger.info('Autorize user')
+        logger.info('Autorized user')
         if user_data.login is None:
             self.email_input().send_keys(user_data.login)
         if user_data.password is None:
