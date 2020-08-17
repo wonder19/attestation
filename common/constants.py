@@ -9,4 +9,4 @@ class DepositPageConstants:
 
     currency_list =['RUB', 'EUR', 'USD']
     end_date_list = ['15', '31', '91', '181', '367', '733', '-1']
-    deposit_type = ['101', '102']
+    deposit_type = ['101']
