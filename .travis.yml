@@ -8,4 +8,5 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - pytest --testrail --tr-config=testrail.cfg
+  - pytest
+  - py.test --testrail --tr-config=testrail.cfg
