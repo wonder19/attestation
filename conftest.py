@@ -54,48 +54,15 @@ def login(app, request):
     password = request.config.getoption("--password")
     user_data = UserData(login=login, password=password)
     app.login_page.auth(user_data)
-    yield app
+
 
 @pytest.fixture(scope="module")
-def fill_deposit_condition(app, request):
-    app.open_main_page()
-    login = request.config.getoption("--username")
-    password = request.config.getoption("--password")
-    user_data = UserData(login=login, password=password)
-    app.login_page.auth(user_data)
+def fill_deposit_condition(app):
     deposit_data = DepositData().random()
     app.main_page.deposit_button_click()
     app.deposit_page.new_deposit_button_click()
-    app.deposit_page.fill_deposit_condition(deposit_data)
-    yield app
-
-
-@pytest.mark.hookwrapper(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    pytest_html = item.config.pluginmanager.getplugin("html")
-    outcome = yield
-    report = outcome.get_result()
-    extra = getattr(report, "extra", [])
-    if report.when == "call":
-        if "app" in item.fixturenames:
-            driver = item.funcargs["app"]
-        xfail = hasattr(report, "wasxfail")
-        # create file
-        add_name = "{}_{}".format(
-            report.nodeid.split("::")[1], datetime.now().strftime("%Y-%m-%d_%H.%M.%S")
-        )
-        file_name = PATH(os.path.abspath(os.curdir) + "/" + add_name + ".png")
-        driver.wd.get_screenshot_as_file(file_name)
-        if (report.skipped and xfail) or (report.failed and not xfail):
-            cp_file_name = add_name + ".png"
-            # only add additional html on failure
-            html = (
-                    "<div><img src="
-                    + cp_file_name
-                    + ' alt="screenshot" style="width:304px;height:228px;" '
-            )
-            extra.append(pytest_html.extras.html(html))
-        report.extra = extra
+    url=app.deposit_page.fill_deposit_condition(deposit_data)
+    app.open_deposit_condition_confirm_pae(url)
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
