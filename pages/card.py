@@ -17,7 +17,7 @@ class CardPage:
         self.wait = WebDriverWait(self.app.wd, 10)
 
     def order_new_card_button(self):
-        return self.app.wd.find_element(*CardLocators.ORDER_NEW_CARD)
+        return self.wait.until(EC.visibility_of_element_located(CardLocators.ORDER_NEW_CARD))
 
     def order_new_card_button_click(self):
         self.order_new_card_button().click()
@@ -80,7 +80,7 @@ class CardPage:
             logger.error('NoSuchElementException')
 
     def success_title(self):
-        return self.app.wd.find_element(*CardLocators.ERROR_LABEL)
+        return self.wait.until(EC.visibility_of_element_located(CardLocators.ERROR_LABEL))
 
     def success_title_get_text(self):
         logger.info('Show text for success title after card ordering')
@@ -138,7 +138,7 @@ class CardPage:
         self.inspect_credit_value_button_click()
 
     def office_selection_dropdown(self):
-        return self.app.wd.find_element(*CardLocators.OFFICE)
+        return self.wait.until(EC.visibility_of_element_located(CardLocators.OFFICE))
 
     def office_selection_dropdown_input(self, office_value):
         Select(self.office_selection_dropdown()).select_by_value(office_value)
@@ -150,7 +150,7 @@ class CardPage:
         self.order_button().click()
 
     def card_success_alert(self):
-        return self.app.wd.find_element(*CardLocators.CARD_ALERT_SUCCESS)
+        return self.wait.until(EC.visibility_of_element_located(CardLocators.CARD_ALERT_SUCCESS))
 
     def card_success_alert_get_text(self):
         return self.card_success_alert().text

@@ -2,6 +2,8 @@ import logging
 import time
 
 import allure
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from locators.deposit import DepositLocators
 from model.deposit import DepositData
@@ -12,6 +14,7 @@ logger = logging.getLogger()
 class DepositPage:
     def __init__(self, app):
         self.app = app
+        self.wait = WebDriverWait(self.app.wd, 10)
 
     def currency_radiobutton(self, currency_value):
         return self.app.wd.find_element_by_xpath(
@@ -53,7 +56,7 @@ class DepositPage:
         self.open_deposit_button(value).click()
 
     def open_pens_deposit_button(self):
-        return self.app.wd.find_element(*DepositLocators.AMOUNT_INPUT)
+        return self.wait.until(EC.visibility_of_element_located(DepositLocators.AMOUNT_INPUT))
 
     def open_pens_deposit_button_click(self):
         self.open_pens_deposit_button().click()
@@ -86,7 +89,7 @@ class DepositPage:
         self.app.deposit_page.fill_deposit_condition(deposit_data)
 
     def end_deposit_date_input(self):
-        return self.app.wd.find_element(*DepositLocators.END_DATE_INPUT)
+        return self.wait.until(EC.visibility_of_element_located(DepositLocators.END_DATE_INPUT))
 
     def end_deposit_date_input_send_keys(self, value):
         self.end_deposit_date_input().send_keys(value)
