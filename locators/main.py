@@ -8,3 +8,4 @@ class MainPageLocators:
     PAYMENT = (By.ID, "payments-form")
     LOGOUT_BUTTON = (By.ID, "logout-button")
     GREETING = (By.ID, "user-greeting")
+

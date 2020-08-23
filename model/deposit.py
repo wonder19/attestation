@@ -11,7 +11,7 @@ class DepositData:
 
     @staticmethod
     def random():
-        currency =random.choice(DepositPageConstants.currency_list)
-        end_date=random.choice(DepositPageConstants.end_date_list)
-        deposit_type=random.choice(DepositPageConstants.deposit_type)
+        currency = random.choice(DepositPageConstants.currency_list)
+        end_date = random.choice(DepositPageConstants.end_date_list)
+        deposit_type = random.choice(DepositPageConstants.deposit_type)
         return DepositData(currency, end_date, deposit_type)

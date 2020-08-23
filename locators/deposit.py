@@ -11,3 +11,4 @@ class DepositLocators:
     RATE_LABEL = (By.CLASS_NAME, 'hidden')
     CONDITION_CHECKBOX = (By.NAME, 'condition.newDepositConditions')
     ALERT_LABEL = (By.XPATH, '//*[@id="alerts-container"]/div[2]')
+    SUBMIT_BUTTON = (By.ID, 'submit-button')

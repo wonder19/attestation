@@ -25,7 +25,7 @@ def pytest_addoption(parser):
     parser.addoption(
         "--headless",
         action="store_true",
-        default=True,
+        default=False,
         help="launching browser without gui",
     ),
     parser.addoption(
@@ -54,7 +54,9 @@ def login(app, request):
     password = request.config.getoption("--password")
     user_data = UserData(login=login, password=password)
     app.login_page.auth(user_data)
-
+    yield app
+    app.open_main_page()
+    app.main_page.logout_button_click()
 
 @pytest.fixture(scope="module")
 def fill_deposit_condition(app):
@@ -62,7 +64,7 @@ def fill_deposit_condition(app):
     app.main_page.deposit_button_click()
     app.deposit_page.new_deposit_button_click()
     url=app.deposit_page.fill_deposit_condition(deposit_data)
-    app.open_deposit_condition_confirm_pae(url)
+    app.open_deposit_condition_confirm_page(url)
 
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
