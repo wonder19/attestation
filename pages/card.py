@@ -62,6 +62,7 @@ class CardPage:
         logger.info('Input sms-code and confirm operation')
         try:
             self.wait.until(EC.frame_to_be_available_and_switch_to_it(CardLocators.IFRAME))
+            time.sleep(5)
             self.wait.until(EC.visibility_of_element_located(CardLocators.SMS_CODE_INPUT)).clear()
             self.wait.until(EC.visibility_of_element_located(CardLocators.SMS_CODE_INPUT)).send_keys(sms_code)
             self.wait.until(EC.visibility_of_element_located(CardLocators.CONFIRM_BUTTON)).click()
