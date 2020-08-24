@@ -63,9 +63,8 @@ class CardPage:
         try:
             self.wait.until(EC.frame_to_be_available_and_switch_to_it(CardLocators.IFRAME))
             self.wait.until(EC.visibility_of_element_located(CardLocators.SMS_CODE_INPUT)).clear()
-            self.app.wd.find_element(*CardLocators.SMS_CODE_INPUT).send_keys(sms_code)
-            time.sleep(5)
-            self.app.wd.find_element(*CardLocators.CONFIRM_BUTTON).click()
+            self.wait.until(EC.visibility_of_element_located(CardLocators.SMS_CODE_INPUT)).send_keys(sms_code)
+            self.wait.until(EC.visibility_of_element_located(CardLocators.CONFIRM_BUTTON)).click()
             self.app.wd.switch_to.default_content()
         except NoSuchElementException:
             self.app.wd.find_element(*CardLocators.SMS_CODE_INPUT).send_keys(sms_code)

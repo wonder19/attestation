@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/test1910md/attestation.svg?branch=master)](https://travis-ci.org/github/test1910md/attestation)
 
+<img src='https://bettercodehub.com/edge/badge/test1910md/attestation?branch=master'>
+
 # Банк Санкт-Петербург
 
     https://idemo.bspb.ru/welcome
