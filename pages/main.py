@@ -16,13 +16,13 @@ class MainPage:
         self.deposit_button().click()
 
     def cards_button(self):
-        return self.wait.until(EC.element_to_be_clickable(MainPageLocators.CARD))
+        return self.wait.until(EC.visibility_of_element_located(MainPageLocators.CARD))
 
     def cards_button_click(self):
         self.cards_button().click()
 
     def logout_button(self):
-        return self.wait.until(EC.element_to_be_clickable(MainPageLocators.LOGOUT_BUTTON))
+        return self.wait.until(EC.visibility_of_element_located(MainPageLocators.LOGOUT_BUTTON))
 
     def logout_button_click(self):
         self.logout_button().click()
