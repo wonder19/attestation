@@ -81,8 +81,9 @@ class CardPage:
 
     def success_title(self):
         try:
+            time.sleep(5)
             return self.wait.until(EC.visibility_of_element_located(CardLocators.ERROR_LABEL))
-        except:
+        except NoSuchElementException:
             return self.app.wd.find_element(*CardLocators.ERROR_LABEL)
 
     def success_title_get_text(self):
