@@ -80,7 +80,10 @@ class CardPage:
             logger.error('NoSuchElementException')
 
     def success_title(self):
-        return self.wait.until(EC.visibility_of_element_located(CardLocators.ERROR_LABEL))
+        try:
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.ERROR_LABEL))
+        except:
+            return self.app.wd.find_element(*CardLocators.ERROR_LABEL)
 
     def success_title_get_text(self):
         logger.info('Show text for success title after card ordering')
