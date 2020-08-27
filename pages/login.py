@@ -12,7 +12,7 @@ logger = logging.getLogger()
 class LoginPage:
     def __init__(self, app):
         self.app = app
-        self.wait = WebDriverWait(self.app.wd, 5)
+        self.wait = WebDriverWait(self.app.wd, 30)
 
     def email_input(self):
         return self.app.wd.find_element(*LoginLocators.LOGIN)

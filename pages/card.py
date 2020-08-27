@@ -14,10 +14,11 @@ logger = logging.getLogger()
 class CardPage:
     def __init__(self, app):
         self.app = app
-        self.wait = WebDriverWait(self.app.wd, 20)
+        self.wait = WebDriverWait(self.app.wd, 60)
 
     def order_new_card_button(self):
         try:
+            time.sleep(5)
             return self.wait.until(EC.visibility_of_element_located(CardLocators.ORDER_NEW_CARD))
         except:
             time.sleep(5)
