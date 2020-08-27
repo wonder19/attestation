@@ -14,7 +14,7 @@ logger = logging.getLogger()
 class DepositPage:
     def __init__(self, app):
         self.app = app
-        self.wait = WebDriverWait(self.app.wd, 10)
+        self.wait = WebDriverWait(self.app.wd, 5)
 
     def currency_radiobutton(self, currency_value):
         return self.app.wd.find_element_by_xpath(

@@ -55,8 +55,8 @@ def login(app, request):
     user_data = UserData(login=login, password=password)
     app.login_page.auth(user_data)
     yield app
-    app.open_main_page()
-    app.main_page.logout_button_click()
+    # app.open_main_page()
+    # app.main_page.logout_button_click()
 
 @pytest.fixture(scope="module")
 def fill_deposit_condition(app):
