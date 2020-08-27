@@ -21,7 +21,7 @@ class MainPage:
     def cards_button(self):
         try:
             return self.wait.until(EC.visibility_of_element_located(MainPageLocators.CARD))
-        except NoSuchElementException:
+        except:
             time.sleep(5)
             return self.wait.until(EC.visibility_of_element_located(MainPageLocators.CARD))
 
@@ -29,7 +29,11 @@ class MainPage:
         self.cards_button().click()
 
     def logout_button(self):
-        return self.wait.until(EC.visibility_of_element_located(MainPageLocators.LOGOUT_BUTTON))
+        try:
+            return self.wait.until(EC.visibility_of_element_located(MainPageLocators.LOGOUT_BUTTON))
+        except:
+            time.sleep(5)
+            self.wait.until(EC.visibility_of_element_located(MainPageLocators.LOGOUT_BUTTON))
 
     def logout_button_click(self):
         self.logout_button().click()
