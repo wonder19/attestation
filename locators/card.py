@@ -22,3 +22,4 @@ class CardLocators:
     DEBET_CARD_OFFICE = (By.ID, 'card-branch')
     FORWARD = (By.ID, 'forward')
     CARD_ALERT_SUCCESS = (By.XPATH, '//*[@class="alert alert-success"]')
+

@@ -17,22 +17,36 @@ class CardPage:
         self.wait = WebDriverWait(self.app.wd, 10)
 
     def order_new_card_button(self):
-        return self.wait.until(EC.visibility_of_element_located(CardLocators.ORDER_NEW_CARD))
+        try:
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.ORDER_NEW_CARD))
+        except:
+            time.sleep(5)
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.ORDER_NEW_CARD))
 
     def order_new_card_button_click(self):
         self.order_new_card_button().click()
 
     def new_debet_card_type_button(self, card_value: str):
-        return self.app.wd.find_element_by_xpath(
-            ("//*[contains(@data-ref ,'" + card_value + "')][@data-ga-product='debitcard']"))
+        try:
+            return self.app.wd.find_element_by_xpath(
+                ("//*[contains(@data-ref ,'" + card_value + "')][@data-ga-product='debitcard']"))
+        except:
+            time.sleep(2)
+            return self.app.wd.find_element_by_xpath(
+                ("//*[contains(@data-ref ,'" + card_value + "')][@data-ga-product='debitcard']"))
 
     def new_debet_card_type_button_click(self, card_value: str):
         logger.info('Order new debet card with selected type')
         self.new_debet_card_type_button(card_value).click()
 
     def new_credit_card_type_button(self, card_value: str):
-        return self.app.wd.find_element_by_xpath(
-            ("//*[contains(@data-ref ,'" + card_value + "')][@data-ga-product='creditcard']"))
+        try:
+            return self.app.wd.find_element_by_xpath(
+                ("//*[contains(@data-ref ,'" + card_value + "')][@data-ga-product='creditcard']"))
+        except:
+            self.app.wd.implicitlyWait(10)
+            return self.app.wd.find_element_by_xpath(
+                ("//*[contains(@data-ref ,'" + card_value + "')][@data-ga-product='creditcard']"))
 
     def new_credit_card_type_button_click(self, card_value: str):
         logger.info('Order new credit card with selected type')
@@ -79,19 +93,24 @@ class CardPage:
         except NoSuchElementException:
             logger.error('NoSuchElementException')
 
-    def success_title(self):
+    def success_title(self, text):
         try:
             time.sleep(5)
-            return self.wait.until(EC.visibility_of_element_located(CardLocators.ERROR_LABEL))
-        except NoSuchElementException:
+            return self.wait.until(EC.text_to_be_present_in_element(CardLocators.ERROR_LABEL, text))
+        except:
+            time.sleep(5)
             return self.app.wd.find_element(*CardLocators.ERROR_LABEL)
 
-    def success_title_get_text(self):
+    def success_title_get_text(self, text):
         logger.info('Show text for success title after card ordering')
-        return self.success_title().text
+        return self.success_title(text).text
 
     def type_card_dropdown(self):
-        return self.app.wd.find_element(*CardLocators.TYPE_SELECTOR)
+        try:
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.TYPE_SELECTOR))
+        except:
+            self.app.wd.implicitlyWait(10)
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.TYPE_SELECTOR))
 
     def type_card_dropdown_select_value(self, card_type):
         logger.info('Select card type from dropdown')

@@ -1,3 +1,6 @@
+import time
+
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 
 from locators.main import MainPageLocators
@@ -16,7 +19,11 @@ class MainPage:
         self.deposit_button().click()
 
     def cards_button(self):
-        return self.wait.until(EC.visibility_of_element_located(MainPageLocators.CARD))
+        try:
+            return self.wait.until(EC.visibility_of_element_located(MainPageLocators.CARD))
+        except NoSuchElementException:
+            time.sleep(5)
+            return self.wait.until(EC.visibility_of_element_located(MainPageLocators.CARD))
 
     def cards_button_click(self):
         self.cards_button().click()
