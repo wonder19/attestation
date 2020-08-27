@@ -116,6 +116,7 @@ class TestCards:
     @allure.description("Order credit card")
     @allure.tag("Testrail C15")
     @pytestrail.case("C15")
+    @pytest.mark.skip
     def test_order_new_credit_card(self, login):
         """
         Steps.
