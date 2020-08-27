@@ -10,4 +10,5 @@ install:
 script:
   - LANGUAGE=ru_RU.UTF-8
 #  - pytest
-  - py.test --testrail --tr-config=testrail.cfg --tr-close-on-complete
+  - py.test --testrail --tr-config=testrail.cfg
+  - py.test  --tr-close-on-complete

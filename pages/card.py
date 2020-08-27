@@ -14,7 +14,7 @@ logger = logging.getLogger()
 class CardPage:
     def __init__(self, app):
         self.app = app
-        self.wait = WebDriverWait(self.app.wd, 10)
+        self.wait = WebDriverWait(self.app.wd, 30)
 
     def order_new_card_button(self):
         try:
@@ -93,17 +93,15 @@ class CardPage:
         except NoSuchElementException:
             logger.error('NoSuchElementException')
 
-    def success_title(self, text):
+    def success_title(self):
         try:
-            time.sleep(5)
-            return self.wait.until(EC.text_to_be_present_in_element(CardLocators.ERROR_LABEL, text))
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.ERROR_LABEL))
         except:
-            time.sleep(5)
-            return self.app.wd.find_element(*CardLocators.ERROR_LABEL)
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.ERROR_LABEL))
 
-    def success_title_get_text(self, text):
+    def success_title_get_text(self):
         logger.info('Show text for success title after card ordering')
-        return self.success_title(text).text
+        return self.success_title().text
 
     def type_card_dropdown(self):
         try:

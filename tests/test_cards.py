@@ -60,7 +60,7 @@ class TestCards:
         login.card_page.virtual_condition_checkbox_click()
         time.sleep(5)
         login.card_page.sms_conformation(CardPageConstants.SMS_CODE)
-        assert login.card_page.success_title_get_text(CardPageConstants.SUCCESS_TITLE_TEXT) == CardPageConstants.SUCCESS_TITLE_TEXT
+        assert login.card_page.success_title_get_text() == CardPageConstants.SUCCESS_TITLE_TEXT
 
     @allure.suite("CardSuite")
     @allure.description("Incorrect confirm sms code")

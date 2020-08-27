@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class MainPage:
     def __init__(self, app):
         self.app = app
-        self.wait = WebDriverWait(self.app.wd, 10)
+        self.wait = WebDriverWait(self.app.wd, 30)
 
     def deposit_button(self):
         return self.app.wd.find_element(*MainPageLocators.DEPOSIT)
