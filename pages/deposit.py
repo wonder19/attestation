@@ -21,6 +21,7 @@ class DepositPage:
             ("//*[contains(text() ,'" + currency_value + "')]"))
 
     def currency_radiobutton_click(self, currency_value):
+        logger.info('Choose deposit currency')
         self.currency_radiobutton(currency_value).click()
 
     def currency_eur_radiobutton(self):
@@ -34,6 +35,7 @@ class DepositPage:
                                                   "//*[contains(@value ,'" + date_value + "')]"))
 
     def end_deposit_date_radiobutton_click(self, date_value):
+        logger.info('Choose deposit end date')
         self.end_deposit_date_radiobutton(date_value).click()
 
     def get_deposit_quantity(self, value):
@@ -46,6 +48,7 @@ class DepositPage:
 
     @allure.step('Start new deposit opening process')
     def new_deposit_button_click(self):
+        logger.info('Start new deposit opening process')
         self.new_deposit_button().click()
 
     def open_deposit_button(self, value: str):
@@ -53,15 +56,19 @@ class DepositPage:
             ("//*[contains(@data-rate-id ,'" + value + "')]//*[contains(@class, 'place-deposit')]"))
 
     def open_deposit_button_click(self, value):
+        logger.info('Select deposit type')
         self.open_deposit_button(value).click()
 
     def open_pens_deposit_button(self):
         try:
+            time.sleep(5)
             return self.wait.until(EC.visibility_of_element_located(DepositLocators.AMOUNT_INPUT))
         except:
+            time.sleep(5)
             return self.wait.until(EC.visibility_of_element_located(DepositLocators.AMOUNT_INPUT))
 
     def open_pens_deposit_button_click(self):
+        logger.info('Open retirement deposit')
         self.open_pens_deposit_button().click()
 
     def alert_label(self):
@@ -69,6 +76,7 @@ class DepositPage:
 
     @allure.step('Show alert text')
     def alert_label_get_text(self):
+        logger.info('Show alert text')
         return self.alert_label().text
 
     @allure.step('Fill deposit condition')
@@ -95,19 +103,23 @@ class DepositPage:
         return self.wait.until(EC.visibility_of_element_located(DepositLocators.END_DATE_INPUT))
 
     def end_deposit_date_input_send_keys(self, value):
+        logger.info('Fill deposit end date')
         self.end_deposit_date_input().send_keys(value)
 
     def amount_input(self):
         return self.app.wd.find_element(*DepositLocators.END_DATE_INPUT)
 
     def amount_input_send_keys(self, amount):
+        logger.info('Fill deposit amount')
         self.open_pens_deposit_button().send_keys(amount)
 
     def get_confirm_condition_page_text(self, deposit_type):
+
         self.open_pens_deposit_button(deposit_type).get_attribute("href")
 
     def submit_button(self):
         return self.app.wd.find_element(*DepositLocators.SUBMIT_BUTTON)
 
     def submit_button_click(self):
+        logger.info('Open deposit')
         self.submit_button().click()

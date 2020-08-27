@@ -24,6 +24,7 @@ class CardPage:
             return self.wait.until(EC.visibility_of_element_located(CardLocators.ORDER_NEW_CARD))
 
     def order_new_card_button_click(self):
+        logger.info('Start ordering card process')
         self.order_new_card_button().click()
 
     def new_debet_card_type_button(self, card_value: str):
@@ -62,6 +63,7 @@ class CardPage:
         return self.app.wd.find_element(*CardLocators.SUBMIT_BUTTON)
 
     def submit_button_click(self):
+        logger.info('Order new card with conditions')
         self.submit_button().click()
 
     def virtual_condition_checkbox(self):
@@ -124,6 +126,7 @@ class CardPage:
         return self.app.wd.find_element(*CardLocators.CREDIT_CARD_LINK)
 
     def credit_card_link_click(self):
+        logger.info('Start credit card ordering process')
         self.credit_card_link().click()
 
     def monthly_income_input(self):
@@ -148,6 +151,7 @@ class CardPage:
         self.inspect_credit_value_button().click()
 
     def fill_credit_card_information(self, income_value):
+        logger.info('Fill conditions for credit card')
         time.sleep(5)
         self.monthly_income_input_set_text(income_value)
         self.credit_history_checkbox().click()
@@ -160,16 +164,19 @@ class CardPage:
         return self.wait.until(EC.visibility_of_element_located(CardLocators.OFFICE))
 
     def office_selection_dropdown_input(self, office_value):
+        logger.info('Fill office location')
         Select(self.office_selection_dropdown()).select_by_value(office_value)
 
     def order_button(self):
         return self.app.wd.find_element(*CardLocators.FORWARD)
 
     def order_button_click(self):
+        logger.info('Order credit card')
         self.order_button().click()
 
     def card_success_alert(self):
         return self.wait.until(EC.visibility_of_element_located(CardLocators.CARD_ALERT_SUCCESS))
 
     def card_success_alert_get_text(self):
+        logger.info('Show text for success title after card ordering')
         return self.card_success_alert().text
