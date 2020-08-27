@@ -20,10 +20,10 @@ class MainPage:
 
     def cards_button(self):
         try:
-            return self.wait.until(EC.visibility_of_element_located(MainPageLocators.CARD))
+            return self.wait.until(EC.element_to_be_clickable(MainPageLocators.CARD))
         except:
-            time.sleep(5)
-            return self.wait.until(EC.visibility_of_element_located(MainPageLocators.CARD))
+            time.sleep(10)
+            return self.wait.until(EC.element_to_be_clickable(MainPageLocators.CARD))
 
     def cards_button_click(self):
         self.cards_button().click()
