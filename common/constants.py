@@ -15,7 +15,7 @@ class DepositPageConstants:
 class CardPageConstants:
     card_type = ['85', '150', '50', '55', '871', '872', '81', '82', '60', '83']
     SMS_INPUT_ERROR = 'Неверный код'
-    SUCCESS_TITLE_TEXT = 'Ваша виртуальная карта готова! '
+    SUCCESS_TITLE_TEXT = 'Ваша виртуальная карта готова!'
     SMS_CODE = '0000'
     SUCCESS_PHYSICAL_CARD_ALERT = 'Спасибо, ваша заявка принята. В ближайшее время ' \
                                   'вам поступит sms-сообщение о готовности карты с ' \
