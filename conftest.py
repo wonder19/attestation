@@ -47,7 +47,7 @@ PATH = lambda p: os.path.abspath(
 )
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def login(app, request):
     app.open_main_page()
     login = request.config.getoption("--username")
