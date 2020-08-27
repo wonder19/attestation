@@ -61,10 +61,10 @@ class DepositPage:
 
     def open_pens_deposit_button(self):
         try:
-            time.sleep(5)
+            time.sleep(10)
             return self.wait.until(EC.visibility_of_element_located(DepositLocators.AMOUNT_INPUT))
         except:
-            time.sleep(5)
+            time.sleep(10)
             return self.wait.until(EC.visibility_of_element_located(DepositLocators.AMOUNT_INPUT))
 
     def open_pens_deposit_button_click(self):
