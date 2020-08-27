@@ -13,7 +13,10 @@ class MainPage:
         self.wait = WebDriverWait(self.app.wd, 30)
 
     def deposit_button(self):
-        return self.app.wd.find_element(*MainPageLocators.DEPOSIT)
+        try:
+            return self.wait.until(EC.element_to_be_clickable(MainPageLocators.DEPOSIT))
+        except:
+            return self.wait.until(EC.element_to_be_clickable(MainPageLocators.DEPOSIT))
 
     def deposit_button_click(self):
         self.deposit_button().click()
