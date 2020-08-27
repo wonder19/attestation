@@ -44,7 +44,6 @@ class CardPage:
             return self.app.wd.find_element_by_xpath(
                 ("//*[contains(@data-ref ,'" + card_value + "')][@data-ga-product='creditcard']"))
         except:
-            self.app.wd.implicitlyWait(10)
             return self.app.wd.find_element_by_xpath(
                 ("//*[contains(@data-ref ,'" + card_value + "')][@data-ga-product='creditcard']"))
 
@@ -81,7 +80,7 @@ class CardPage:
             self.wait.until(EC.visibility_of_element_located(CardLocators.SMS_CODE_INPUT)).send_keys(sms_code)
             self.wait.until(EC.visibility_of_element_located(CardLocators.CONFIRM_BUTTON)).click()
             self.app.wd.switch_to.default_content()
-        except NoSuchElementException:
+        except:
             self.app.wd.find_element(*CardLocators.SMS_CODE_INPUT).send_keys(sms_code)
             self.app.wd.find_element(*CardLocators.CONFIRM_BUTTON).click()
 
@@ -95,9 +94,9 @@ class CardPage:
 
     def success_title(self):
         try:
-            return self.wait.until(EC.visibility_of_element_located(CardLocators.ERROR_LABEL))
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.SUCSESS_TITLE))
         except:
-            return self.wait.until(EC.visibility_of_element_located(CardLocators.ERROR_LABEL))
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.SUCSESS_TITLE))
 
     def success_title_get_text(self):
         logger.info('Show text for success title after card ordering')
@@ -107,7 +106,6 @@ class CardPage:
         try:
             return self.wait.until(EC.visibility_of_element_located(CardLocators.TYPE_SELECTOR))
         except:
-            self.app.wd.implicitlyWait(10)
             return self.wait.until(EC.visibility_of_element_located(CardLocators.TYPE_SELECTOR))
 
     def type_card_dropdown_select_value(self, card_type):

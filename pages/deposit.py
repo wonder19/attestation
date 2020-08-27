@@ -59,8 +59,7 @@ class DepositPage:
         try:
             return self.wait.until(EC.visibility_of_element_located(DepositLocators.AMOUNT_INPUT))
         except:
-            self.app.wd.implicitlyWait(10)
-            self.wait.until(EC.visibility_of_element_located(DepositLocators.AMOUNT_INPUT))
+            return self.wait.until(EC.visibility_of_element_located(DepositLocators.AMOUNT_INPUT))
 
     def open_pens_deposit_button_click(self):
         self.open_pens_deposit_button().click()
