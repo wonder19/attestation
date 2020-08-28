@@ -15,7 +15,7 @@ class PaymentPage:
 
     def __init__(self, app):
         self.app = app
-        self.wait = WebDriverWait(self.app.wd, 30)
+        self.wait = WebDriverWait(self.app.wd, 90)
 
     def smart_payment_input(self):
         return self.app.wd.find_element(*PaymentLocators.SMART_PAYMENT)

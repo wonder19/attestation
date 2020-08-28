@@ -13,7 +13,7 @@ logger = logging.getLogger()
 class MainPage:
     def __init__(self, app):
         self.app = app
-        self.wait = WebDriverWait(self.app.wd, 60)
+        self.wait = WebDriverWait(self.app.wd, 90)
 
     def deposit_button(self):
         try:

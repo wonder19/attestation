@@ -1,4 +1,5 @@
 import logging
+import time
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,7 +13,7 @@ logger = logging.getLogger()
 class LoginPage:
     def __init__(self, app):
         self.app = app
-        self.wait = WebDriverWait(self.app.wd, 30)
+        self.wait = WebDriverWait(self.app.wd, 90)
 
     def email_input(self):
         return self.app.wd.find_element(*LoginLocators.LOGIN)
@@ -22,8 +23,10 @@ class LoginPage:
 
     def login_button(self):
         try:
+            time.sleep(10)
             return  self.wait.until(EC.visibility_of_element_located(LoginLocators.LOGIN_BUTTON))
         except:
+            time.sleep(5)
             return self.app.wd.find_element(*LoginLocators.LOGIN_BUTTON)
 
     def login_opt_button(self):
