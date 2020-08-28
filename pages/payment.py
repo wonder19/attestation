@@ -1,4 +1,5 @@
 import logging
+import time
 
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.select import Select
@@ -91,7 +92,12 @@ class PaymentPage:
         self.card_payment_amount().send_keys(amount_value)
 
     def card_error_alert(self):
-        return self.wait.until(EC.visibility_of_element_located(PaymentLocators.CARD_ERROR_ALERT))
+        try:
+            time.sleep(5)
+            return self.wait.until(EC.visibility_of_element_located(PaymentLocators.CARD_ERROR_ALERT))
+        except:
+            time.sleep(5)
+            return self.wait.until(EC.visibility_of_element_located(PaymentLocators.CARD_ERROR_ALERT))
 
     def card_error_alert_get_text(self):
         logger.info('Show alert for card payment')

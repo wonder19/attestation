@@ -176,7 +176,12 @@ class CardPage:
         self.order_button().click()
 
     def card_success_alert(self):
-        return self.wait.until(EC.visibility_of_element_located(CardLocators.CARD_ALERT_SUCCESS))
+        try:
+            time.sleep(5)
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.CARD_ALERT_SUCCESS))
+        except:
+            time.sleep(5)
+            return self.wait.until(EC.visibility_of_element_located(CardLocators.CARD_ALERT_SUCCESS))
 
     def card_success_alert_get_text(self):
         logger.info('Show text for success title after card ordering')
