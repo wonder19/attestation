@@ -38,8 +38,8 @@ class TestDeposit:
 
     @allure.suite("DepositSuite")
     @allure.description("Open Deposit test with incorrect date condition")
-    @allure.tag("Testrail C9")
-    @pytestrail.case("C9")
+    @allure.tag("Testrail C5, C6")
+    @pytestrail.case("C5, C6")
     def test_open_deposit_with_incorrect_date(self, login):
         """
         Steps.
@@ -68,8 +68,8 @@ class TestDeposit:
 
     @allure.suite("DepositSuite")
     @allure.description("Change deposit term and currency value")
-    @allure.tag("Testrail C7")
-    @pytestrail.case("C7")
+    @allure.tag("Testrail C3")
+    @pytestrail.case("C3")
     @pytest.mark.parametrize('currency_value, deposit_quantity',
                              [('RUB', 3), ('EUR', 3), ('USD', 1)])
     def test_change_deposit_term_and_currency(self, login, currency_value, deposit_quantity):
@@ -87,8 +87,8 @@ class TestDeposit:
 
     @allure.suite("DepositSuite")
     @allure.description("Open retirement deposit")
-    @allure.tag("Testrail C8")
-    @pytestrail.case("C8")
+    @allure.tag("Testrail C4")
+    @pytestrail.case("C4")
     @pytest.mark.skip
     def test_open_pens_deposit(self, login):
         """

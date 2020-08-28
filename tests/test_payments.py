@@ -10,8 +10,8 @@ from model.payment import PaymentData
 class TestPayments:
     @allure.suite("PaymentSuit")
     @allure.description("Payment between wallets test")
-    @allure.tag("Testrail C16")
-    @pytestrail.case("C16")
+    @allure.tag("Testrail C12")
+    @pytestrail.case("C12")
     def test_payment_between_wallets(self, login):
         """
             Steps.
@@ -34,8 +34,8 @@ class TestPayments:
 
     @allure.suite("PaymentSuit")
     @allure.description("Smart payment input test")
-    @allure.tag("Testrail C17")
-    @pytestrail.case("C17")
+    @allure.tag("Testrail C13")
+    @pytestrail.case("C13")
     def test_input_smart_input(self, login):
         """
             Steps.
@@ -52,8 +52,8 @@ class TestPayments:
 
     @allure.suite("PaymentSuit")
     @allure.description("Payment between wallets with empty fields")
-    @allure.tag("Testrail C18")
-    @pytestrail.case("C18")
+    @allure.tag("Testrail C14")
+    @pytestrail.case("C14")
     def test_payment_between_wallets_with_empty_fields(self, login):
         """
             Steps.
@@ -71,8 +71,8 @@ class TestPayments:
 
     @allure.suite("PaymentSuit")
     @allure.description("Payment without recipient card")
-    @allure.tag("Testrail C19")
-    @pytestrail.case("C19")
+    @allure.tag("Testrail C15")
+    @pytestrail.case("C15")
     def test_card_payment_without_recipient_card(self, login):
         """
             Steps.
@@ -91,8 +91,8 @@ class TestPayments:
 
     @allure.suite("PaymentSuit")
     @allure.description("Payment between cards")
-    @allure.tag("Testrail C20")
-    @pytestrail.case("C20")
+    @allure.tag("Testrail C16")
+    @pytestrail.case("C16")
     def test_card_payment(self, login):
         """
             Steps.
@@ -112,8 +112,8 @@ class TestPayments:
 
     @allure.suite("PaymentSuit")
     @allure.description("Payment request")
-    @allure.tag("Testrail C21")
-    @pytestrail.case("C21")
+    @allure.tag("Testrail C17")
+    @pytestrail.case("C17")
     def test_payment_request(self, login):
         """
             Steps.

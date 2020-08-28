@@ -10,8 +10,8 @@ from common.constants import CardPageConstants
 class TestCards:
     @allure.suite("CardSuite")
     @allure.description("Order debet physical card test")
-    @allure.tag("Testrail C11")
-    @pytestrail.case("C11")
+    @allure.tag("Testrail C7")
+    @pytestrail.case("C7")
     @pytest.mark.parametrize('card_type, office_adress_value',
                              [('50', '001-055'), ('60', '001-056')])
     def test_order_debet_physical_card(self, login, card_type, office_adress_value):
@@ -36,8 +36,8 @@ class TestCards:
 
     @allure.suite("CardSuite")
     @allure.description("Order new virtual card test")
-    @allure.tag("Testrail C12")
-    @pytestrail.case("C12")
+    @allure.tag("Testrail C8")
+    @pytestrail.case("C8")
     def test_order_new_virtual_card(self, login):
         """
         Steps.
@@ -64,8 +64,8 @@ class TestCards:
 
     @allure.suite("CardSuite")
     @allure.description("Incorrect confirm sms code")
-    @allure.tag("Testrail C13")
-    @pytestrail.case("C13")
+    @allure.tag("Testrail C9")
+    @pytestrail.case("C9")
     @pytest.mark.parametrize('sms_code', ['1111', 'gjghgj', ''])
     def test_order_new_virtual_card_with_incorrect_sms_code(self, login, sms_code):
         """
@@ -92,8 +92,8 @@ class TestCards:
 
     @allure.suite("CardSuite")
     @allure.description("Sort cards by type")
-    @allure.tag("Testrail C14")
-    @pytestrail.case("C14")
+    @allure.tag("Testrail C10")
+    @pytestrail.case("C10")
     @pytest.mark.parametrize('card_type, type_name',
                              [('YARKO', 'Яркая'), ('RETIRED', 'Пенсионная'), ('VIRTUAL', 'Виртуальная')])
     def test_sort_cards_type(self, login, card_type, type_name):
@@ -114,8 +114,8 @@ class TestCards:
 
     @allure.suite("CardSuite")
     @allure.description("Order credit card")
-    @allure.tag("Testrail C15")
-    @pytestrail.case("C15")
+    @allure.tag("Testrail C11")
+    @pytestrail.case("C11")
     @pytest.mark.skip
     def test_order_new_credit_card(self, login):
         """

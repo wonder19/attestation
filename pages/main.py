@@ -13,7 +13,7 @@ logger = logging.getLogger()
 class MainPage:
     def __init__(self, app):
         self.app = app
-        self.wait = WebDriverWait(self.app.wd, 60)
+        self.wait = WebDriverWait(self.app.wd, 6)
 
     def deposit_button(self):
         try:
@@ -38,10 +38,10 @@ class MainPage:
 
     def logout_button(self):
         try:
-            time.sleep(30)
+            time.sleep(5)
             return self.wait.until(EC.visibility_of_element_located(MainPageLocators.LOGOUT_BUTTON))
         except:
-            time.sleep(10)
+            time.sleep(5)
             self.wait.until(EC.visibility_of_element_located(MainPageLocators.LOGOUT_BUTTON))
 
     def logout_button_click(self):
