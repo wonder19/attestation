@@ -14,7 +14,7 @@ logger = logging.getLogger()
 class CardPage:
     def __init__(self, app):
         self.app = app
-        self.wait = WebDriverWait(self.app.wd, 60)
+        self.wait = WebDriverWait(self.app.wd, 90)
 
     def order_new_card_button(self):
         try:
