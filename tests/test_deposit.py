@@ -89,7 +89,7 @@ class TestDeposit:
     @allure.description("Open retirement deposit")
     @allure.tag("Testrail C8")
     @pytestrail.case("C8")
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_open_pens_deposit(self, login):
         """
         Steps.

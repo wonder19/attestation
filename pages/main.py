@@ -38,7 +38,7 @@ class MainPage:
 
     def logout_button(self):
         try:
-            time.sleep(10)
+            time.sleep(30)
             return self.wait.until(EC.visibility_of_element_located(MainPageLocators.LOGOUT_BUTTON))
         except:
             time.sleep(10)
