@@ -40,7 +40,12 @@ class PaymentPage:
         return self.smart_payment_dropdown_value().text.lower()
 
     def continue_button(self):
-        return self.app.wd.find_element(*PaymentLocators.FORWARD)
+        try:
+            time.sleep(5)
+            return self.wait.until(EC.visibility_of_element_located(PaymentLocators.FORWARD))
+        except:
+            time.sleep(5)
+            return self.wait.until(EC.visibility_of_element_located(PaymentLocators.FORWARD))
 
     def continue_button_click(self):
         logger.info('Continue process of payment creation')
@@ -118,7 +123,7 @@ class PaymentPage:
         return self.card_payment_demo_alert().text
 
     def payment_request_link(self):
-        return self.app.wd.find_element(*PaymentLocators.PAYMENT_REQUEST_LINK)
+        return self.wait.until(EC.visibility_of_element_located(PaymentLocators.PAYMENT_REQUEST_LINK))
 
     def payment_request_link_click(self):
         logger.info('Select request payment type')

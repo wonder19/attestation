@@ -135,4 +135,4 @@ dmypy.json
 .pyre/
 
 #report
-.allure/
+allure/

@@ -39,6 +39,7 @@ class TestCards:
     @allure.description("Order new virtual card test")
     @allure.tag("Testrail C8")
     @pytestrail.case("C8")
+    @pytest.mark.skip
     def test_order_new_virtual_card(self, login):
         """
         Steps.
