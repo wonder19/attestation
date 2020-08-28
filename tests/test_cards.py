@@ -12,6 +12,7 @@ class TestCards:
     @allure.description("Order debet physical card test")
     @allure.tag("Testrail C7")
     @pytestrail.case("C7")
+    @pytest.mark.skip
     @pytest.mark.parametrize('card_type, office_adress_value',
                              [('50', '001-055'), ('60', '001-056')])
     def test_order_debet_physical_card(self, login, card_type, office_adress_value):
