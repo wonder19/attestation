@@ -58,6 +58,7 @@ def login(app, request):
     app.open_main_page()
     app.main_page.logout_button_click()
 
+
 @pytest.fixture(scope="module")
 def fill_deposit_condition(app):
     deposit_data = DepositData().random()
