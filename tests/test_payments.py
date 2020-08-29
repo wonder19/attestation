@@ -10,7 +10,7 @@ from model.payment import PaymentData
 
 class TestPayments:
     @allure.suite("PaymentSuit")
-    @allure.description("Payment between wallets test")
+    # @allure.description("Payment between wallets test")
     @allure.tag("Testrail C12")
     @pytestrail.case("C12")
     def test_payment_between_wallets(self, login):
@@ -34,7 +34,7 @@ class TestPayments:
         assert login.payment_page.card_error_alert_get_text() == 'В демо-версии переводы не разрешены'
 
     @allure.suite("PaymentSuit")
-    @allure.description("Smart payment input test")
+    # @allure.description("Smart payment input test")
     @allure.tag("Testrail C13")
     @pytestrail.case("C13")
     def test_input_smart_input(self, login):
@@ -52,7 +52,7 @@ class TestPayments:
         assert login.payment_page.smart_payment_dropdown_value_get_text() == input_dropdown_value
 
     @allure.suite("PaymentSuit")
-    @allure.description("Payment between wallets with empty fields")
+    # @allure.description("Payment between wallets with empty fields")
     @allure.tag("Testrail C14")
     @pytestrail.case("C14")
     def test_payment_between_wallets_with_empty_fields(self, login):
