@@ -13,7 +13,7 @@ class TestPayments:
     @allure.description("Payment between wallets test")
     @allure.tag("Testrail C12")
     @pytestrail.case("C12")
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_payment_between_wallets(self, login):
         """
             Steps.

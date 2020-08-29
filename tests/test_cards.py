@@ -12,7 +12,7 @@ class TestCards:
     @allure.description("Order debet physical card test")
     @allure.tag("Testrail C7")
     @pytestrail.case("C7")
-    @pytest.mark.skip
+    # @pytest.mark.skip
     @pytest.mark.parametrize('card_type, office_adress_value',
                              [('50', '001-055'), ('60', '001-056')])
     def test_order_debet_physical_card(self, login, card_type, office_adress_value):
@@ -39,7 +39,7 @@ class TestCards:
     @allure.description("Order new virtual card test")
     @allure.tag("Testrail C8")
     @pytestrail.case("C8")
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_order_new_virtual_card(self, login):
         """
         Steps.
@@ -118,7 +118,7 @@ class TestCards:
     @allure.description("Order credit card")
     @allure.tag("Testrail C11")
     @pytestrail.case("C11")
-    @pytest.mark.skip
+    # @pytest.mark.skip
     def test_order_new_credit_card(self, login):
         """
         Steps.
