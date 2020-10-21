@@ -1,10 +1,8 @@
 import os
-import time
-from datetime import datetime
 
-import allure
 import pytest
 
+import allure
 from model.deposit import DepositData
 from model.login import UserData
 from pages.application import Application
@@ -25,7 +23,7 @@ def pytest_addoption(parser):
     parser.addoption(
         "--headless",
         action="store_true",
-        default=True,
+        default=False,
         help="launching browser without gui",
     ),
     parser.addoption(
@@ -42,9 +40,7 @@ def pytest_addoption(parser):
     )
 
 
-PATH = lambda p: os.path.abspath(
-    os.path.join(os.path.dirname(__file__), '..', p)
-)
+PATH = lambda p: os.path.abspath(os.path.join(os.path.dirname(__file__), "..", p))
 
 
 @pytest.fixture(scope="function")
@@ -64,7 +60,7 @@ def fill_deposit_condition(app):
     deposit_data = DepositData().random()
     app.main_page.deposit_button_click()
     app.deposit_page.new_deposit_button_click()
-    url=app.deposit_page.fill_deposit_condition(deposit_data)
+    url = app.deposit_page.fill_deposit_condition(deposit_data)
     app.open_deposit_condition_confirm_page(url)
 
 

@@ -11,7 +11,7 @@ class PaymentData:
         self.comment = comment
 
     def random(self):
-        date = '20.11.2020'
+        date = "20.11.2020"
         amount = random.randint(1, 50000)
         comment = Faker().text()
         return PaymentData(date, amount, comment)

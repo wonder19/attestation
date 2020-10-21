@@ -28,7 +28,7 @@ class Application:
         self.payment_page = PaymentPage(self)
 
     def open_main_page(self):
-        logger.info('Open main page')
+        logger.info("Open main page")
         self.wd.get(self.base_url + "welcome")
 
     def open_deposit_condition_confirm_page(self, value: str):

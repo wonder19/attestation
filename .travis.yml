@@ -9,4 +9,4 @@ install:
 
 script:
   - LANGUAGE=ru_RU.UTF-8
-  - py.test --testrail --tr-config=testrail.cfg --tr-close-on-complete
+  - py.test --testrail --tr-config=testrail.cfg --tr-testrun-suite-id=2 --tr-testrun-suite-id=3 --tr-close-on-complete

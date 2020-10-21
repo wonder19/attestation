@@ -13,3 +13,5 @@ my_py:
 allure:
 	@pytest --alluredir=C:\mari1\attestation\allure
 
+safari:
+	@pytest --driver Safari
