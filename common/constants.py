@@ -40,3 +40,7 @@ class PaymentPageConstants:
     SAME_CARD_ALERT = "Номера карт должны отличаться"
     CARD_PAYMENT_DEMO_ALERT = "В демо-версии переводы не разрешены"
     PAYMENT_REQUEST_SUCCESS_ALERT = "Ссылка сгенерирована"
+
+
+class TestRail:
+    TUPLE_FOR_RETURN = [(12, 35), (3, 2), (4, 3), (8, 3), (1, 2), (2, 2)]
